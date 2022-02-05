@@ -1,10 +1,4 @@
-const express = require("express");
-const router = express.Router();
+const apiRoutes = require('./api/v1');
+const viewRoutes = require('./views');
 
-const todo = require("./todoRoutes");
-const product = require("./productRoutes");
-
-router.use("/todo", todo);
-router.use("/product", product);
-
-module.exports = router;
+module.exports = { apiRoutes, viewRoutes };

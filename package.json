@@ -7,6 +7,9 @@
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "nodemonConfig": {        
+    "ignore": ["config/cars.json", "config/garage.json"]  
+  },
   "author": "Alvin Naufal",
   "license": "ISC",
   "dependencies": {

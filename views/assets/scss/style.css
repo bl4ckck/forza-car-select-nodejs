@@ -20,6 +20,7 @@ body {
 
 main {
   min-height: 100vh;
+  margin-bottom: 8rem;
 }
 
 p {
@@ -54,6 +55,10 @@ input[type=submit]#buy {
 .btn-home__img {
   width: 1.3rem;
   height: 1.3rem;
+}
+
+.hide {
+  display: none !important;
 }
 
 nav .navbar {
@@ -217,9 +222,12 @@ footer .footer {
   display: -ms-grid;
   display: grid;
   padding: 2rem 2rem;
+  background-color: white;
   margin-bottom: 5rem;
-  overflow-x: scroll;
-  grid-auto-columns: 13rem;
+  overflow-x: auto;
+  -ms-grid-columns: (minmax(13rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  grid-auto-columns: minmax(13rem, 1fr);
   grid-auto-flow: column;
   gap: 0.25rem;
   -ms-grid-rows: (minmax(0, 9rem))[2];

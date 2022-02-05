@@ -1,11 +1,16 @@
-<footer class="<%= props.isProduct? 'footer-product' : 'footer-home' %>">
-    <div class="footer-home__wrapper px-5 py-4 d-flex justify-content-between align-items-center">
-        <p class="footer-home__copyright reset align-self-center">©2022 Alvin Naufal</p>
-        <ul class="footer-home__list flex-row d-flex justify-content-center align-items-center">
-            <li><a class="nav-link" href="#about">About</a></li>
-            <li><a class="nav-link" href="/product">Product</a></li>
-            <li><a class="nav-link" href="#articles">Articles</a></li>
-            <li><a class="nav-link" href="/">Home</a></li>
-        </ul>
+<footer>
+    <div class="footer">
+        <div class="<%= props.isGarage!==undefined? 'hide' : '' %>">
+            <form action="/api/v1/cars/redirect" method="POST">
+                <input type="hidden" name="id" id="idcar" />
+                <input type="submit" id="buy" value="BUY" />
+            </form>
+        </div>
+        <button class="btn-home <%= props.isGarage!==undefined? '' : 'hide' %>" onClick="window.location= '/'">
+            <img class="btn-home__img" src="/assets/image/home.svg">
+        </button>
+        <button class="btn-home <%= props.isGarage!==undefined? 'hide' : '' %>" onClick="window.location= '/garage'">
+            <img class="btn-home__img" src="/assets/image/automobile.svg">
+        </button>
     </div>
 </footer>
