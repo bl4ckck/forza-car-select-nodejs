@@ -1,0 +1,18 @@
+@mixin flex-center($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin navigation($pos, $direction) {    
+    position: fixed;
+    z-index: 5;
+    #{$pos}: 0;
+    width: 100%;
+    min-height: 4rem;
+    @include flex-center($direction);
+    color: white;
+    background-color: black;
+    padding: 0.5em 0;
+}

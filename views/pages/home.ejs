@@ -1,0 +1,50 @@
+<main>
+    <div class="header-banner">
+        <img class="header-banner__img" src="/image/blur-bg.png" alt="header background" />
+        <div class="header-banner__text">
+            <p class="header-banner__title text-uppercase">Art of Plant</p>
+            <p class="header-banner__sub text-uppercase">All About Art of Nature</p>
+            <hr class="hr-main" style="width:20%;">
+        </div>
+    </div>
+
+    <div id="latest-article">
+        <div class="container">
+            <p class="text-center text-uppercase latest-article__title">latest Articles</p>
+            <hr class="hr-main" style="width:3.125rem; margin-bottom: 1rem;">
+            <div class="d-flex align-items-center justify-content-evenly latest-article__card-wrapper">
+                <!-- TODO: dibikin map, data dari json -->
+                <%- include('../components/cards/latestArticleCard', {
+                    props: {
+                        title: "Title of Articles",
+                        image: "article1.png",
+                        description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`
+                    }
+                }); %>
+                <%- include('../components/cards/latestArticleCard', {
+                    props: {
+                        title: "Title of Articles",
+                        image: "article2.png",
+                        description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`
+                    }
+                }); %>
+                <%- include('../components/cards/latestArticleCard', {
+                    props: {
+                        title: "Title of Articles",
+                        image: "article3.png",
+                        description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`
+                    }
+                }); %>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../components/about'); %>
+
+    <div class="subscribe-content d-flex flex-column justify-content-center align-items-center">
+        <p class="subscribe-content__title text-uppercase">Subscribe</p>
+        <p class="reset subscribe-content__sub" style="margin-bottom: 1.563rem!important;">Sign up to our newsletters</p>
+        <input type="text" class="subscribe-content__input" placeholder="Your email here.." />
+        <button class="subscribe-content__submit text-uppercase">Submit</button>
+    </div>
+</main>

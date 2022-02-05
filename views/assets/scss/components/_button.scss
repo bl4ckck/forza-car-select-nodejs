@@ -1,0 +1,24 @@
+input[type=submit]#buy {
+    background-color: $bg-cash;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 0.3rem 1rem;
+    cursor: pointer;
+}
+
+.btn-home {
+    background-color: white;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    border-radius: 9999px;
+    margin: 0 0.4rem;
+    
+    &__img {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+}
