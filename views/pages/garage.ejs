@@ -1,8 +1,5 @@
 <main>
-    <section class="car-display">
-        <img class="car-display__img" src="/assets/image/car1.png" />
-        <p class="car-display__title">Loading...</p>
-    </section>
+    <%- include('../components/carDisplay'); %>
     <section class="car-select">
         <% props.data.map((el, index) => { %>
                 <%- include('../components/cards/carCard', {
