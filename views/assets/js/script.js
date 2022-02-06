@@ -29,4 +29,27 @@ addEventListener("load", () => {
             // history.replaceState({ id: i }, "", "?id="+i);
         });
     }
+
+    /**
+     * Key Bindings
+     */
+    window.addEventListener("keydown", (event) => {
+            if (event.defaultPrevented) return
+
+            switch (event.key) {
+                case " ":
+                    window.location = "/garage";
+                    break;
+                case "Esc":
+                case "Escape":
+                    window.location = "/";
+                    break;
+                default:
+                    return;
+            }
+
+            event.preventDefault();
+        },
+     true
+    );
 });

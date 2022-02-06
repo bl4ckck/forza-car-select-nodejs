@@ -12,14 +12,14 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Archivo Narrow', sans-serif !important;
   color: #7a7a7b;
   padding: 0;
   margin: 0;
 }
 
 main {
-  min-height: 100vh;
+  min-height: 100vh !important;
   margin-bottom: 8rem;
 }
 
@@ -28,26 +28,46 @@ p {
   margin: 0;
 }
 
-a {
+.btn-base, #buy, .button-menu__btn, .btn-home {
+  border: none;
   text-decoration: none;
 }
 
-input[type=submit]#buy {
-  background-color: #0fc489;
-  border: none;
+#buy {
+  background-color: #01b592;
   color: white;
   font-weight: 600;
-  padding: 16px 32px;
-  text-decoration: none;
+  padding: 0.8rem 2rem;
   margin: 0.3rem 1rem;
-  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.button-menu {
+  margin: 0 0.5rem;
+}
+
+.button-menu:hover {
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+}
+
+.button-menu__btn {
+  background-color: black;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-right: 0.4rem;
+  border: 0.1rem solid white;
+  border-radius: 0.25rem;
+}
+
+.button-menu__description {
+  letter-spacing: 0.025em;
 }
 
 .btn-home {
   background-color: white;
-  border: none;
-  padding: 0.3rem 0.5rem;
-  cursor: pointer;
+  padding: 0.3rem 0.4rem;
   border-radius: 9999px;
   margin: 0 0.4rem;
 }
@@ -61,38 +81,35 @@ input[type=submit]#buy {
   display: none !important;
 }
 
-nav .navbar {
-  position: fixed;
+.uppercase, .button-menu__btn {
+  text-transform: uppercase !important;
+}
+
+.cursor-pointer, .btn-base, #buy, .button-menu__btn, .btn-home, .button-menu, .navbar__profile, .navbar__cr {
+  cursor: pointer !important;
+}
+
+.navbar {
+  position: fixed !important;
   z-index: 5;
   top: 0;
   width: 100%;
   min-height: 4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: white;
   background-color: black;
   padding: 0.5em 0;
+  padding: 0 0.5rem !important;
 }
 
-nav .navbar__profile {
+.navbar__profile {
   border: 0 solid #eb7724;
   border-radius: 0.225rem;
   padding: 1px;
+  margin: 0 1rem;
   background-color: #eb7724;
 }
 
-nav .navbar__profile-wrapper {
+.navbar__profile-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,98 +125,64 @@ nav .navbar__profile-wrapper {
           align-items: center;
 }
 
-nav .navbar__profile-wrapper-img {
+.navbar__profile-wrapper-img {
   display: block;
   width: 1.5rem;
   border-radius: 0.25rem;
   margin-right: 0.2rem;
 }
 
-nav .navbar__profile-wrapper-level {
+.navbar__profile-wrapper-level {
   font-weight: 600;
   font-size: 1rem;
   margin-right: 0.2rem;
 }
 
-nav .navbar__profile-wrapper-name {
+.navbar__profile-wrapper-name {
   font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.1rem 0.2rem;
+  letter-spacing: 0.05em;
+  padding: 0.1rem 0.4rem;
   border-radius: 0.25rem;
   background-color: black;
 }
 
-nav .navbar__cr {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 0.5rem;
+.navbar__profile-wrapper-name__img {
+  position: relative;
+  display: inline-block;
+  width: 0.7rem;
+  top: -0.1rem;
 }
 
-nav .navbar__cr-logo {
+.navbar__cr-logo {
   color: #868686;
   background-color: #f8f8f8;
   font-weight: 600;
   font-size: 0.8rem;
+  letter-spacing: -0.05em;
   padding: 0.2rem 0.3rem;
-  margin-right: 0.5rem;
+  margin-right: 0.1rem;
   border-top-left-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
 }
 
-nav .navbar__cr-credit {
+.navbar__cr-credit {
   font-weight: 600;
   font-size: 0.9rem;
 }
 
-footer .footer {
-  position: fixed;
+.footer {
+  position: fixed !important;
   z-index: 5;
   bottom: 0;
   width: 100%;
   min-height: 4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: white;
   background-color: black;
   padding: 0.5em 0;
 }
 
 .car-display {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin: 4.5rem 2rem 0;
 }
 
@@ -223,8 +206,8 @@ footer .footer {
   display: grid;
   padding: 2rem 2rem;
   background-color: white;
-  margin-bottom: 5rem;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   -ms-grid-columns: (minmax(13rem, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
   grid-auto-columns: minmax(13rem, 1fr);

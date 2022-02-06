@@ -5,13 +5,12 @@
     align-items: center;
 }
 
-@mixin navigation($pos, $direction) {    
-    position: fixed;
+@mixin navigation($pos) {    
+    position: fixed !important;
     z-index: 5;
     #{$pos}: 0;
     width: 100%;
     min-height: 4rem;
-    @include flex-center($direction);
     color: white;
     background-color: black;
     padding: 0.5em 0;

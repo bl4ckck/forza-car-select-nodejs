@@ -1,19 +1,46 @@
-input[type=submit]#buy {
-    background-color: $bg-cash;
+.btn-base {
+    @extend .cursor-pointer;
     border: none;
+    text-decoration: none;
+}
+
+#buy {
+    @extend .btn-base;
+    background-color: $bg-cash;
     color: white;
     font-weight: 600;
-    padding: 16px 32px;
-    text-decoration: none;
+    padding: 0.8rem 2rem;
     margin: 0.3rem 1rem;
-    cursor: pointer;
+    border-radius: $rounded;
+}
+
+.button-menu {
+    @extend .cursor-pointer;
+    margin: 0 0.5rem;
+    &:hover {
+        transform:scale(0.9);
+        -webkit-transform:scale(0.9);
+    }
+
+    &__btn {
+        @extend .btn-base, .uppercase;
+        background-color: black;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-right: 0.4rem;
+        border: 0.1rem solid white;
+        border-radius: $rounded;
+    }
+    &__description {
+        letter-spacing: 0.025em;
+    }
 }
 
 .btn-home {
+    @extend .btn-base;
     background-color: white;
-    border: none;
-    padding: 0.3rem 0.5rem;
-    cursor: pointer;
+    padding: 0.3rem 0.4rem;
     border-radius: 9999px;
     margin: 0 0.4rem;
     

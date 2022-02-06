@@ -10,22 +10,18 @@ html {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif !important;
     color: $text-color;
     padding: 0;
     margin: 0;
 }
 
 main {
-    min-height: 100vh;
+    min-height: 100vh !important;
     margin-bottom: 8rem;
 }
 
 p {
     padding: 0;
     margin: 0;
-}
-
-a {
-    text-decoration: none;
 }

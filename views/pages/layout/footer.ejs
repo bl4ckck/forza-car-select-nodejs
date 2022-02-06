@@ -1,16 +1,16 @@
-<footer>
-    <div class="footer">
-        <div class="<%= props.isGarage!==undefined? 'hide' : '' %>">
-            <form action="/api/v1/cars/redirect" method="POST">
-                <input type="hidden" name="id" id="idcar" />
-                <input type="submit" id="buy" value="BUY" />
-            </form>
-        </div>
-        <button class="btn-home <%= props.isGarage!==undefined? '' : 'hide' %>" onClick="window.location= '/'">
-            <img class="btn-home__img" src="/assets/image/home.svg">
-        </button>
-        <button class="btn-home <%= props.isGarage!==undefined? 'hide' : '' %>" onClick="window.location= '/garage'">
-            <img class="btn-home__img" src="/assets/image/automobile.svg">
-        </button>
+<footer class="d-flex justify-content-center align-items-center footer">
+    <div class="<%= props.isGarage!==undefined? 'hide' : '' %>">
+        <form action="/api/v1/cars/redirect" method="POST">
+            <input type="hidden" name="id" id="idcar" />
+            <input type="submit" id="buy" value="BUY" />
+        </form>
+    </div>
+    <div class="d-flex flex-wrap align-items-center button-menu" onClick="window.location= '/'">
+        <button class="button-menu__btn">Esc</button>
+        <p class="button-menu__description">Home</p>
+    </div>
+    <div class="d-flex flex-wrap align-items-center button-menu" onClick="window.location= '/garage'">
+        <button class="button-menu__btn">Space</button>
+        <p class="button-menu__description">Jump to Garage</p>
     </div>
 </footer>
