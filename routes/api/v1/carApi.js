@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {
     findAllCar,
+    findAllCarTest,
     findAllCarGarage,
     findOneCar,
     findOneCarGarage,
@@ -13,6 +14,11 @@ const {
  * GET
  */
 router.get("/", findAllCar);
+
+/*
+ * GET TEST
+ */
+router.get("/test/cars", findAllCarTest);
 
 /*
  * GET

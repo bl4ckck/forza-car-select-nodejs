@@ -28,6 +28,14 @@ exports.garageView = async (req, res) => {
 /** 
  * API
 */
+exports.findAllCarTest = async (req, res) => {
+    const data = await carModel.testFindAll()
+
+    res.status(200).json({
+        message: "GET request to /cars",
+        data: data
+    });
+};
 exports.findAllCar = async (req, res) => {
     const data = await carModel.findAll("car");
 
