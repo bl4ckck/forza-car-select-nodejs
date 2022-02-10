@@ -1,8 +1,13 @@
 const { db } = require('../config/');
-const { CREATE_CARS } = require('./cars')
-const { CREATE_MANUFACTURES } = require('./manufactures')
+const MANUFACTURES = require('./manufactures')
+const CARS = require('./cars')
+const GARAGES = require('./garages')
 
-const CREATE_TABLES = [CREATE_MANUFACTURES, CREATE_CARS];
+const CREATE_TABLES = [
+    MANUFACTURES, 
+    CARS, 
+    GARAGES
+];
 
 const migrations = async () => {
     try {

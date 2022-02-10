@@ -1,4 +1,4 @@
-exports.INSERT_CARS = `
+const INSERT_CARS = `
   INSERT INTO "Cars" (manufacture_id, name, image, year) VALUES
     (1, 'Bentley 8-Liter', 'car1.png', '1980'),
     (2, 'BMW Isetta 300', 'car2.png', '1960'),
@@ -15,3 +15,5 @@ exports.INSERT_CARS = `
     (2, 'BMW Isetta 300 test 2', 'car2.png', '1960'),
     (3, 'Dodge Charger test 2', 'car3.png', '1970'),
     (4, 'Austin Seven 2', 'car4.png', '1939')`;
+
+module.exports = INSERT_CARS;

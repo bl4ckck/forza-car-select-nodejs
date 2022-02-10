@@ -4,7 +4,7 @@ const { carModel } = require('../models');
  * VIEWS
 */
 exports.homeView = async (req, res) => {
-    const data = await carModel.findAll("car");
+    const data = await carModel.findAll();
 
     res.render("index", {
         page: "home",
@@ -14,7 +14,7 @@ exports.homeView = async (req, res) => {
     });
 };
 exports.garageView = async (req, res) => {
-    const data = await carModel.findAll("garage");
+    const data = await carModel.findAll();
 
     res.render("index", {
         page: "garage",
@@ -28,34 +28,43 @@ exports.garageView = async (req, res) => {
 /** 
  * API
 */
-exports.findAllCarTest = async (req, res) => {
-    const data = await carModel.testFindAll()
-
-    res.status(200).json({
-        message: "GET request to /cars",
-        data: data
-    });
-};
 exports.findAllCar = async (req, res) => {
-    const data = await carModel.findAll("car");
+    const data = await carModel.findAll();
 
     res.status(200).json({
         message: "GET request to /cars",
         data
     });
 };
+exports.findAllCarManufacture = async (req, res) => {
+    const data = await carModel.findAllCarManufacture();
+
+    res.status(200).json({
+        message: "GET request to /cars/get/manufactures",
+        data
+    });
+};
 exports.findOneCar = async (req, res) => {
     const { id } = req.params;
-    const data = await carModel.findOne("car", id);
+    const data = await carModel.findOne(id);
 
     res.status(200).json({
         message: "GET request to /cars/:id",
         data
     });
 };
+exports.findOneCarManufacture = async (req, res) => {
+    const { id } = req.params;
+    const data = await carModel.findOneCarManufacture(id);
+
+    res.status(200).json({
+        message: "GET request to /cars/get/manufactures/:id",
+        data,
+    });
+};
 
 exports.findAllCarGarage = async (req, res) => {
-    const data = await carModel.findAll("garage");
+    const data = await carModel.findAll();
 
     res.status(200).json({
         message: "GET request to /garage/cars",
@@ -64,11 +73,40 @@ exports.findAllCarGarage = async (req, res) => {
 };
 exports.findOneCarGarage = async (req, res) => {
     const { id } = req.params;
-    const data = await carModel.findOne("garage", id);
+    const data = await carModel.findOne(id);
 
     res.status(200).json({
         message: "GET request to /garage/cars/:id",
         data,
+    });
+};
+
+exports.insertCar = async (req, res) => {
+    const data = await carModel.createCar(req.body);
+
+    res.status(201).json({
+        message: "POST request to /cars",
+        data
+    });
+};
+exports.updateCar = async (req, res) => {
+    const { id } = req.params;
+    const data = await carModel.updateCar(id, req.body);
+    console.log(req.body)
+    console.log(id)
+
+    res.status(201).json({
+        message: "PUT request to /cars/:id",
+        data
+    });
+};
+exports.deleteCar = async (req, res) => {
+    const { id } = req.params;
+    const data = await carModel.deleteCar(id);
+
+    res.status(200).json({
+        message: "DELETE request to /cars/:id",
+        data
     });
 };
 

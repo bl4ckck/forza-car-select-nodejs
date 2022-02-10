@@ -1,3 +1,4 @@
 const carModel = require('./Car')
+const manufactureModel = require('./Manufacture')
 
-module.exports = { carModel }
+module.exports = { manufactureModel, carModel }

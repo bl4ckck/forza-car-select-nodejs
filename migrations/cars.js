@@ -1,4 +1,4 @@
-exports.CREATE_CARS = `
+const CREATE_CARS = `
   CREATE TABLE IF NOT EXISTS "Cars" (
     id SERIAL PRIMARY KEY NOT NULL,
     manufacture_id INT NOT NULL,
@@ -10,3 +10,5 @@ exports.CREATE_CARS = `
         FOREIGN KEY(manufacture_id) 
         REFERENCES "Manufactures"(id)
   )`;
+
+module.exports = CREATE_CARS

@@ -4,25 +4,89 @@ const DATA_PATH_CARS = "./config/cars.json"
 const DATA_PATH_GARAGE = "./config/garage.json"
 
 class Car {
-    static async testFindAll() {
-        const data = await db.query(`SELECT * FROM "Cars"`);
-        console.log(data)
+    static async findAll() {
+        const { rows } = await db.query(
+            `SELECT * FROM "Cars" ORDER BY id DESC`
+        );
 
-        return data.rows;
+        return rows;
     }
-    static async findAll(type) {
-        const data_path = type === "car" ? DATA_PATH_CARS : DATA_PATH_GARAGE;
+    static async findAllCarManufacture() {
+        const { rows } = await db.query(`
+            SELECT C.id, manufacture_id, M.manufacture, name, image, year FROM "Cars" C
+            INNER JOIN "Manufactures" M
+                    ON M.id = C.manufacture_id
+            ORDER BY C.id DESC
+        `);
 
-        const { data } = JSON.parse(await readFile(data_path, "utf8"));
-
-        return data;
+        return rows;
     }
-    static async findOne(type, params) {
-        const data_path = type === "car" ? DATA_PATH_CARS : DATA_PATH_GARAGE;
+    static async findOne(params) {
+        const { rows } = await db.query(`
+            SELECT * FROM "Cars"
+            WHERE id = ${params}
+        `);
 
-        const { data } = JSON.parse(await readFile(data_path, "utf8"));
+        return rows[0];
+    }
+    static async findOneCarManufacture(params) {
+        const { rows } = await db.query(`
+            SELECT C.id, manufacture_id, M.manufacture, name, image, year FROM "Cars" C
+            INNER JOIN "Manufactures" M
+                    ON M.id = C.manufacture_id
+            WHERE C.id = ${params}
+        `);
 
-        return data[params];
+        return rows[0];
+    }
+    static async createCar(params) {
+        const { rows } = await db.query(`
+            INSERT INTO "Cars"(manufacture_id, name, image, year)
+            VALUES (${params.manufacture_id}, '${params.name}', '${params.image}', '${params.year}')
+            RETURNING *
+        `);
+
+        return rows[0];
+    }
+    //TODO: update & delete Car
+    static async updateCar(id, params) {
+        // let queryString = ""
+        // const objParams = Object.keys(params)
+        // objParams.forEach((value, id) => {
+        //     queryString = queryString + `${value} = '${params[value]}'${id < objParams.length - 1 ? "," : ""}`;
+        // })
+
+        // console.log("queryString: ",coba);
+        // const { rows } = await db.query(`
+        //     UPDATE "Cars"
+        //     SET ${queryString}
+        //     WHERE id=${id}  
+        //     RETURNING *
+        // `);
+
+        // return rows[0];
+        let queryString = "";
+        for (const props in params) {
+            queryString += `${props} = '${params[props]}',`;
+        }
+
+        const { rows } = await db.query(`
+            UPDATE "Cars"
+            SET ${queryString.slice(0, -1)}
+            WHERE id=${id}  
+            RETURNING *
+        `);
+
+        return rows[0];
+    }
+    static async deleteCar(id) {
+        const { rows } = await db.query(`
+            DELETE FROM "Cars"
+            WHERE id=${id}  
+            RETURNING *
+        `);
+
+        return rows[0];
     }
     static async addCarGarage(params) {
         const carData = JSON.parse(await readFile(DATA_PATH_CARS, "utf8")).data;

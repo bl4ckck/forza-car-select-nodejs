@@ -1,10 +1,14 @@
 const { db } = require('../config/');
-const { INSERT_CARS } = require('./cars.seeder')
-const { INSERT_MANUFACTURES } = require('./manufactures.seeder')
+const CARS = require('./cars.seeder')
+const MANUFACTURES = require('./manufactures.seeder')
+const GARAGES = require('./garages.seeder')
 
-const INSERT_DATA = [INSERT_MANUFACTURES, INSERT_CARS];
+const INSERT_DATA = [
+    MANUFACTURES, 
+    CARS, 
+    GARAGES
+];
 
-//TODO: seeder & migration for garage
 const seeders = async () => {
     try {
         for (let i = 0; i < INSERT_DATA.length; i++) {

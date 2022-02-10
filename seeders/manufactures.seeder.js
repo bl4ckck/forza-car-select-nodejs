@@ -1,4 +1,4 @@
-exports.INSERT_MANUFACTURES = `
+const INSERT_MANUFACTURES = `
     INSERT INTO "Manufactures" (manufacture) VALUES
     ('Bentley'),
     ('BMW'),
@@ -6,3 +6,5 @@ exports.INSERT_MANUFACTURES = `
     ('Austin'),
     ('Auto Union'),
     ('Jaguar Cars')`;
+
+module.exports = INSERT_MANUFACTURES;
