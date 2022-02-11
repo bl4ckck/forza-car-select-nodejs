@@ -48,23 +48,7 @@ class Car {
 
         return rows[0];
     }
-    //TODO: update & delete Car
     static async updateCar(id, params) {
-        // let queryString = ""
-        // const objParams = Object.keys(params)
-        // objParams.forEach((value, id) => {
-        //     queryString = queryString + `${value} = '${params[value]}'${id < objParams.length - 1 ? "," : ""}`;
-        // })
-
-        // console.log("queryString: ",coba);
-        // const { rows } = await db.query(`
-        //     UPDATE "Cars"
-        //     SET ${queryString}
-        //     WHERE id=${id}  
-        //     RETURNING *
-        // `);
-
-        // return rows[0];
         let queryString = "";
         for (const props in params) {
             queryString += `${props} = '${params[props]}',`;

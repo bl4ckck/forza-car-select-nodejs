@@ -6,7 +6,7 @@ const GARAGES = require('./garages.seeder')
 const INSERT_DATA = [
     MANUFACTURES, 
     CARS, 
-    GARAGES
+    // GARAGES
 ];
 
 const seeders = async () => {

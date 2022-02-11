@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const CAR_C = require("../../../controllers").carController;
+const { reqBody } = require("../../../middlewares")
 
 /*
  * GET
@@ -34,7 +35,7 @@ router.get("/garage/cars/:id", CAR_C.findOneCarGarage);
 /*
  * POST
  */
-router.post("/", CAR_C.insertCar);
+router.post("/", reqBody, CAR_C.insertCar);
 
 /*
  * PUT
@@ -46,9 +47,5 @@ router.put("/:id", CAR_C.updateCar);
  */
 router.delete("/:id", CAR_C.deleteCar);
 
-/*
- * POST
- */
-router.post("/redirect", CAR_C.createCarGarageRedirect);
 
 module.exports = router;

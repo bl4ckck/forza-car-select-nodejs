@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 const { apiRoutes, viewRoutes } = require("./routes");
+const { errMdl } = require("./middlewares")
 
 app.use(morgan("dev"));
 app.use(cors());
@@ -19,9 +20,8 @@ app.set("view engine", "ejs");
 app.use(viewRoutes);
 app.use("/api/v1", apiRoutes);
 
-app.use((req, res, next) => {
-    res.status(404).send({message: "Resource not found!"});
-})
+app.use(errMdl.errorResponder)
+app.use(errMdl.failSafeHandler)
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
