@@ -1,3 +1,5 @@
+const authController = require("./authController")
 const carController = require("./carController")
+const manufactureController = require("./manufactureController")
 
-module.exports = { carController }
+module.exports = { authController, carController, manufactureController };

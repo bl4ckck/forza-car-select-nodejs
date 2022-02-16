@@ -9,3 +9,23 @@
 .cursor-pointer {
     cursor: pointer !important;
 }
+
+.reset-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.reset-link {
+    text-decoration: none;
+}
+
+.img-responsive {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+}
+
+.active-menu {
+    border-left: 2px solid $bg-orange;
+}

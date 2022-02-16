@@ -1,11 +1,20 @@
-@mixin flex-center($direction) {
+@mixin flex-center($direction, $justify: true) {
     display: flex;
     flex-direction: $direction;
-    justify-content: center;
+    @if $justify {
+        justify-content: center;
+    }
     align-items: center;
 }
 
-@mixin navigation($pos) {    
+@mixin breakpoint($size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+@mixin navigation($pos) {
+    @include flex-center(row);
     position: fixed !important;
     z-index: 5;
     #{$pos}: 0;
@@ -13,5 +22,17 @@
     min-height: 4rem;
     color: white;
     background-color: black;
+    padding: 0.5em 0;
+}
+
+@mixin sidebar($direction, $justify) {
+    @include flex-center($direction, $justify);
+    position: fixed !important;
+    background-color: white;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 15rem;
+    height: 100%;
     padding: 0.5em 0;
 }

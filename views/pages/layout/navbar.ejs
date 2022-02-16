@@ -1,16 +1,29 @@
-<nav class="d-flex justify-content-center navbar">
-    <div class="navbar__profile">
-        <div class="navbar__profile-wrapper">
-            <img class="navbar__profile-wrapper-img" src="/assets/image/about.png" />
-            <div class="navbar__profile-wrapper-level">33</div>
-            <div class="navbar__profile-wrapper-name">
-                <span>Alvin Naufal</span>
-                <img class="navbar__profile-wrapper-name__img" src="/assets/image/crown.svg" />
+<nav class="navbar">
+    <div class="navbar__brand">
+        <div class="navbar__brand-title">Sekolahan.</div>
+        <button id="nav-toggle" class="navbar__brand-toggle">
+            <img class="navbar__brand-toggle-img" src="/assets/image/menu.svg">
+        </button>
+    </div>
+    <hr class="navbar__separator" />
+    <ul class="navbar__menu">
+        <li class="navbar__menu-item">
+            <div class="item__link" onClick="window.location= '/'">
+                <img src="/assets/image/home.svg" class="item__link__logo" />
+                <div class="item__link__title">Home</div>
             </div>
-        </div>
-    </div>
-    <div class="navbar__cr">
-        <span class="navbar__cr-logo">CR</span>
-        <span class="navbar__cr-credit">9,999,999</span>
-    </div>
+        </li>
+        <li class="navbar__menu-item">
+            <div class="item__link" onClick="window.location= '/garage'">
+                <img src="/assets/image/user.svg" class="item__link__logo" />
+                <div class="item__link__title">Students</div>
+            </div>
+        </li>
+        <li class="navbar__menu-item">
+            <div class="item__link" onClick="window.location= '/garage'">
+                <img src="/assets/image/settings.svg" class="item__link__logo" />
+                <div class="item__link__title">Settings</div>
+            </div>
+        </li>
+    </ul>
 </nav>
