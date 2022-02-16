@@ -2,7 +2,7 @@ const { userModel } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { checkData } = require("../utils");
-const saltRounds = 10;
+const saltRounds = 12;
 
 exports.register = async (req, res, next) => {
     try {

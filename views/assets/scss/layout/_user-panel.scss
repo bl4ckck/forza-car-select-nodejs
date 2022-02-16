@@ -1,0 +1,41 @@
+.user-panel {
+    @include flex-center(row, true);
+    margin-bottom: 2rem;
+
+    &__notification {
+        @extend .img-responsive, .cursor-pointer;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+    }
+    
+    .profile-wrapper {
+        @include flex-center(row, true);
+        @extend .cursor-pointer;
+        position: relative;
+        min-width: 10rem;
+        padding: 0.3rem 0;
+        flex-direction: row;
+
+        &:hover {
+            #logout {
+                visibility: visible;
+            }
+        }
+        
+        &__name {
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+        &__img {
+            @extend .img-responsive;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: $rounded-full;
+        }
+    }
+
+    @include breakpoint(md) {
+        justify-content: flex-end;
+    }
+}

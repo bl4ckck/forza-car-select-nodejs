@@ -5,8 +5,8 @@ const MANUFACTURES = require('./manufactures.seeder')
 
 const INSERT_DATA = [
     USERS,
-    // MANUFACTURES, 
-    // CARS
+    MANUFACTURES, 
+    CARS
 ];
 
 const seeders = async () => {

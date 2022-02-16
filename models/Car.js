@@ -1,5 +1,6 @@
 const { db } = require("../config");
 
+//TODO: Change the name of the table to 'Students', 'Users', Enum Role, etc... 
 class Car {
     static async findAll() {
         const { rows } = await db.query(

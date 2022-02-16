@@ -5,8 +5,8 @@ const CARS = require('./cars')
 
 const CREATE_TABLES = [
     USERS,
-    // MANUFACTURES,
-    // CARS
+    MANUFACTURES,
+    CARS
 ];
 
 const migrations = async () => {

@@ -10,7 +10,6 @@ class User {
     }
     static async findOne(params) {
         const { email } = params
-        console.log(email)
         const { rows } = await db.query(`
             SELECT * FROM "Users"
             WHERE email = '${email}'

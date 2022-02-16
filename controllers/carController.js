@@ -5,23 +5,24 @@ const { checkData } = require('../utils');
  * VIEWS
 */
 exports.homeView = async (req, res) => {
-    const data = await carModel.findAll("car");
+    const data = await carModel.findAll();
 
     res.render("index", {
         page: "home",
         props: {
-            data
+            data,
+            menu: { home: true }
         },
     });
 };
 exports.garageView = async (req, res) => {
-    const data = await carModel.findAll("garage");
+    const data = await carModel.findAll();
 
     res.render("index", {
         page: "garage",
         props: {
             data,
-            isGarage: true
+            menu: { student: true },
         },
     });
 };

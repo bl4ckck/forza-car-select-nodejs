@@ -29,7 +29,7 @@ app.use(express.static(__dirname + "/views"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(
     cookieSession({
         secret: process.env.SESSION_SECRET,
@@ -38,7 +38,7 @@ app.use(
         httpOnly: true,
         // secure: true,
         maxAge: 60 * 60 * 1000, // 1
-        keys: new Keygrip(['qwertyuiopasdfghjklzxcvbnm123456'], "SHA384", "base64"),
+        keys: new Keygrip([process.env.KEY_GRIP], "SHA384", "base64"),
         signed: true,
     })
 );

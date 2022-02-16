@@ -21,7 +21,12 @@
 <body>
   <%- include('pages/layout/navbar', props); %>
 
-  <%- include('pages/'+page, props); %>
+  <main class="main-content">
+    <div class="main-content__inner">
+        <%- include('components/userPanel', props); %>
+        <%- include('pages/'+page, props); %>
+    </div>
+  </main>
     
   <script src="/assets/js/script.js"></script>
 </body>

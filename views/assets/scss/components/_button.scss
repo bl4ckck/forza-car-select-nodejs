@@ -49,3 +49,19 @@
         height: 1.3rem;
     }
 }
+
+.btn-logout {
+    @extend .btn-base;
+    visibility: hidden;
+    position: absolute;
+    min-width: 9rem;
+    left: 0;
+    top: 3rem;
+    box-shadow: $shadow-md;
+    background-color: white;
+    padding: 0.3rem 0.4rem;
+    border: 1px solid $color-gray;
+    border-radius: $rounded;
+    font-weight: 600;
+    color: $color-red;
+}

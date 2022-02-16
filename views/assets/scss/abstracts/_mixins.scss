@@ -15,7 +15,7 @@
 
 @mixin navigation($pos) {
     @include flex-center(row);
-    position: fixed !important;
+    position: fixed;
     z-index: 5;
     #{$pos}: 0;
     width: 100%;
@@ -27,7 +27,7 @@
 
 @mixin sidebar($direction, $justify) {
     @include flex-center($direction, $justify);
-    position: fixed !important;
+    position: fixed;
     background-color: white;
     z-index: 5;
     top: 0;

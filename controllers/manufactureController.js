@@ -28,6 +28,7 @@ exports.insertManufacture = (req, res, next) => {
 exports.findAllManufacture = async (req, res, next) => {
     try {
         console.log("manumanu")
+        console.log(req.cookies)
         console.log(req.session)
         const data = await manufactureModel.findAll() ?? {};
 
