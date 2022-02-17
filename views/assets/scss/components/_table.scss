@@ -1,0 +1,32 @@
+.data-list {
+    .table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        
+
+        &__head > tr > th {
+            padding: 0.5rem 0.8rem;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            // color: $color-gray1;
+            border-bottom: 2px solid $color-gray;
+        }
+
+        &__body {
+            & > tr {
+                &:hover {
+                    background-color: $color-gray;
+                }
+
+                & > td {
+                    padding: 0.8rem 0.8rem;
+                    text-align: left;
+                    letter-spacing: 0.025em;
+                    border-bottom: 1px solid $color-gray;
+                }
+            }
+        }
+    }
+}

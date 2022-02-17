@@ -1,56 +1,46 @@
-const { db } = require("../config");
-
-class User {
-    static async findAll() {
-        const { rows } = await db.query(
-            `SELECT * FROM "Users" ORDER BY id DESC`
-        );
-
-        return rows;
-    }
-    static async findOne(params) {
-        const { email } = params
-        const { rows } = await db.query(`
-            SELECT * FROM "Users"
-            WHERE email = '${email}'
-        `);
-
-        return rows[0];
-    }
-    static async createUser(params) {
-        const { rows } = await db.query(`
-            INSERT INTO "Users"(role, email, password, name)
-            VALUES (${params.role}, '${params.email}', '${params.password}', '${params.name}')
-            RETURNING *
-        `);
-
-        return rows[0];
-    }
-    static async updateUser(id, params) {
-        let queryString = "";
-        for (const props in params) {
-            queryString += `${props} = '${params[props]}',`;
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+    class User extends Model {
+        /**
+         * Helper method for defining associations.
+         * This method is not a part of Sequelize lifecycle.
+         * The `models/index` file will call this method automatically.
+         */
+        static associate(models) {
+            // define association here
+            // User.belongsTo(models.Manufacture);
         }
-
-        const { rows } = await db.query(`
-            UPDATE "Users"
-            SET ${queryString}
-                updated_at = NOW()
-            WHERE id=${id}  
-            RETURNING *
-        `);
-
-        return rows[0];
     }
-    static async deleteUser(id) {
-        const { rows } = await db.query(`
-            DELETE FROM "Users"
-            WHERE id=${id}  
-            RETURNING *
-        `);
-
-        return rows[0];
-    }
-}
-
-module.exports = User;
+    User.init(
+        {
+            id: {
+                primaryKey: true,
+                autoIncrement: true,
+                type: DataTypes.INTEGER,
+            },
+            roles: {
+                allowNull: false,
+                type: DataTypes.ENUM,
+                values: ["STUDENT", "ADMIN"],
+            },
+            email: {
+                allowNull: false,
+                unique: true,
+                type: DataTypes.STRING(50),
+            },
+            password: {
+                allowNull: false,
+                type: DataTypes.TEXT,
+            },
+            createdAt: { type: DataTypes.DATE, allowNull: false },
+            updatedAt: { type: DataTypes.DATE, allowNull: false },
+        },
+        {
+            sequelize,
+            timestamps: true,
+            modelName: "User",
+        }
+    );
+    return User;
+};

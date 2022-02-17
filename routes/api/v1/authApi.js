@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const AUTH_C = require("../../../controllers").authController;
-const { reqBody } = require("../../../middlewares");
-const passport = require("passport");
+const { reqBody, authMdl } = require("../../../middlewares");
+
 /*
  * GET
  */
@@ -21,27 +21,7 @@ router.post("/register", reqBody, AUTH_C.register);
 /*
  * LOGIN
  */
-router.post(
-    "/login",
-    // passport.authenticate("local", { failureRedirect: "/" }),
-    (req, res, next) => {
-        passport.authenticate("local", (err, user, info) => {
-            if (err) {
-                return next(err);
-            }
-            if (!user) {
-                return next("Authentication failed");
-            }
-            req.login(user, (err) => {
-                if (err) {
-                    return next(err);
-                }
-                return next()
-            });
-        })(req, res, next);
-    },
-    AUTH_C.login
-);
+router.post("/login", authMdl.onLogin, AUTH_C.login);
 
 /*
  * PUT

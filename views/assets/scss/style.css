@@ -93,6 +93,31 @@ p {
   color: #ef5350;
 }
 
+.data-list .table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.data-list .table__head > tr > th {
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #edeef1;
+}
+
+.data-list .table__body > tr:hover {
+  background-color: #edeef1;
+}
+
+.data-list .table__body > tr > td {
+  padding: 0.8rem 0.8rem;
+  text-align: left;
+  letter-spacing: 0.025em;
+  border-bottom: 1px solid #edeef1;
+}
+
 .hide {
   display: none !important;
 }
@@ -278,6 +303,9 @@ p {
   }
   .navbar__brand-toggle {
     display: none;
+  }
+  .navbar__separator {
+    display: block;
   }
   .navbar__menu {
     display: block;
