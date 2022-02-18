@@ -7,25 +7,32 @@ module.exports = {
         [
             {
                 roles: "STUDENT",
-                email: "user1@gmail.com",
-                password: "$2a$10$8s/Tc6EZiqWX8SQYs.SJEO0u9VRqgYv7KwaqQAijZziTtBasjYuvO",
-                createdAt: "2021-09-14T07:34:06 -07:00",
-                updatedAt: "2021-09-14T07:34:06 -07:00",
-            },
-            {
-                roles: "ADMIN",
-                email: "user2@gmail.com",
+                email: "student@gmail.com",
                 password: "$2a$10$8s/Tc6EZiqWX8SQYs.SJEO0u9VRqgYv7KwaqQAijZziTtBasjYuvO",
                 createdAt: "2021-09-14T07:34:06 -07:00",
                 updatedAt: "2021-09-14T07:34:06 -07:00",
             },
             {
                 roles: "STUDENT",
-                email: "user3@gmail.com",
+                email: "student2@gmail.com",
                 password: "$2a$10$8s/Tc6EZiqWX8SQYs.SJEO0u9VRqgYv7KwaqQAijZziTtBasjYuvO",
                 createdAt: "2021-09-14T07:34:06 -07:00",
                 updatedAt: "2021-09-14T07:34:06 -07:00",
-            }
+            },
+            {
+                roles: "ADMIN",
+                email: "admin@gmail.com",
+                password: "$2a$10$8s/Tc6EZiqWX8SQYs.SJEO0u9VRqgYv7KwaqQAijZziTtBasjYuvO",
+                createdAt: "2021-09-14T07:34:06 -07:00",
+                updatedAt: "2021-09-14T07:34:06 -07:00",
+            },
+            {
+                roles: "ADMIN",
+                email: "admin2@gmail.com",
+                password: "$2a$10$8s/Tc6EZiqWX8SQYs.SJEO0u9VRqgYv7KwaqQAijZziTtBasjYuvO",
+                createdAt: "2021-09-14T07:34:06 -07:00",
+                updatedAt: "2021-09-14T07:34:06 -07:00",
+            },
         ],
         {}
     );

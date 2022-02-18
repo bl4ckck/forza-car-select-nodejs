@@ -1,7 +1,8 @@
 "use strict";
 const { Model } = require("sequelize");
+// const { User } = require("./");
 module.exports = (sequelize, DataTypes) => {
-    class User extends Model {
+    class People extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -9,28 +10,42 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            User.hasOne(models.People);
+            People.belongsTo(models.User);
         }
     }
-    User.init(
+    People.init(
         {
             id: {
                 primaryKey: true,
                 autoIncrement: true,
                 type: DataTypes.INTEGER,
             },
-            roles: {
+            UserId: {
                 allowNull: false,
-                type: DataTypes.ENUM,
-                values: ["STUDENT", "ADMIN"],
-                defaultValue: "STUDENT",
+                type: DataTypes.INTEGER,
+                references: {
+                    model: {
+                        tableName: "Users",
+                    },
+                    key: "id",
+                },
             },
-            email: {
+            name: {
                 allowNull: false,
+                type: DataTypes.STRING(255),
+            },
+            avatar: {
+                defaultValue: "avatar1.png",
+                type: DataTypes.TEXT,
+            },
+            phone: {
                 unique: true,
-                type: DataTypes.STRING(50),
+                validate: {
+                    isInt: true,
+                },
+                type: DataTypes.STRING(15),
             },
-            password: {
+            address: {
                 allowNull: false,
                 type: DataTypes.TEXT,
             },
@@ -40,8 +55,9 @@ module.exports = (sequelize, DataTypes) => {
         {
             sequelize,
             timestamps: true,
-            modelName: "User",
+            tableName: "Peoples",
+            modelName: "People",
         }
     );
-    return User;
+    return People;
 };

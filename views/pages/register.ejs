@@ -1,0 +1,32 @@
+<main class="form__auth">
+    <div class="form__auth__wrapper">
+        <p class="form__auth__wrapper-logo">Sekolahan.</p>
+        <p class="form__auth__wrapper-signin">Register</p>
+        <p class="form__auth__wrapper-continue">to continue to Sekolahan.</p>
+        <form class="form-main" action="/api/v1/auth/register?redirect=true" method="POST">
+            <input required type="email" name="email" placeholder="Email" />
+            <input required type="password" name="password" placeholder="Password" />
+            
+            <hr class="separator" />
+            
+            <label for="lname">Name</label>
+            <input required type="text" name="name" id="lname" placeholder="Name..." />
+            
+            <label for="lphone">Phone</label>
+            <input required type="text" name="phone" id="lphone" placeholder="Phone..." />
+            
+            <label for="lavatar">Avatar</label>
+            <input type="hidden" name="avatar" id="lavatar" />
+            
+            <section class="avatar-select">
+                 <%- include('../components/cards/avatarCard'); %>
+            </section>
+            
+            <label for="laddress">Address</label>
+            <textarea id="laddress" name="address" rows="2" placeholder="Address..."></textarea>
+
+            <input type="submit" id="btn-submit" value="Register" />
+        </form>
+        <p class="form__auth__wrapper-register">Already have an account? <a href="/login">Login here!</a></p>
+    </div>
+</main>

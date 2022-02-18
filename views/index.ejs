@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Alvin's Car Showroom</title>
+  <title>Alvin | <%= props.title %></title>
 
   <link rel="icon" type="image/x-icon" href="/assets/image/favicon.ico">
 
@@ -19,16 +19,19 @@
 </head>
 
 <body>
-  <%- include('pages/layout/navbar', props); %>
-
-  <main class="main-content">
-    <div class="main-content__inner">
-        <%- include('components/userPanel', props); %>
-        <%- include('pages/'+page, props); %>
-    </div>
-  </main>
-    
-  <script src="/assets/js/script.js"></script>
+  <% if (page==="login" || page==="register") { %>
+    <%- include('pages/'+page); %>
+    <script src="/assets/js/avatar.js"></script>
+  <% } else { %>
+    <%- include('pages/layout/navbar'); %>
+    <main class="main-content">
+      <div class="main-content__inner">
+          <%- include('components/userPanel', props); %>
+          <%- include('pages/'+page, props); %>
+      </div>
+    </main>
+    <script src="/assets/js/script.js"></script>
+  <% } %>
 </body>
 
 </html>

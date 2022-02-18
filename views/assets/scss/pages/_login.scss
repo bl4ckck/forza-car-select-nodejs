@@ -1,0 +1,38 @@
+.form__auth {
+    @include flex-center(column);
+    margin: 1rem 1rem;
+    
+    &__wrapper {
+        @extend .card-main;
+        @include flex-center(column);
+        padding: 2rem;
+        width: 100%;
+        min-height: 25rem;
+
+        &-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        &-signin {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        &-continue {
+            margin-bottom: 1rem;
+        }
+        &-register {
+            margin-top: 1rem;
+
+            a {
+                @extend .reset-link;
+                color: $color-blue;
+                font-weight: 600;
+            }
+        }
+
+        @include breakpoint(xsm) {
+            width: 20rem;
+        }
+    }
+}

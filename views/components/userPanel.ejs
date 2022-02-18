@@ -1,8 +1,8 @@
 <div class="user-panel">
     <img class="user-panel__notification" src="/assets/image/bell.svg" />
     <div class="profile-wrapper">
-        <div class="profile-wrapper__name">USER_NAME</div>
-        <img class="profile-wrapper__img" src="/assets/image/about.png" />
-        <button id="logout" class="btn-logout">Log Out</button>
+        <div class="profile-wrapper__name"><%= props.user["Person.name"] %></div>
+        <img class="profile-wrapper__img" src="<%= '/assets/image/avatar/' + props.user['Person.avatar'] %>" />
+        <button id="logout" class="btn-logout" onClick="window.location= '/api/v1/auth/logout'">Log Out</button>
     </div>
 </div>

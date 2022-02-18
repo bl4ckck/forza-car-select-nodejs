@@ -13,8 +13,9 @@
                 <div class="item__link__title">Home</div>
             </div>
         </li>
+        <% if (props.user.roles==="ADMIN") { %>
         <li class="navbar__menu-item">
-            <div class="item__link <%= props.menu.student!==undefined? 'active-menu' : '' %>" onClick="window.location= '/garage'">
+            <div class="item__link <%= props.menu.students!==undefined? 'active-menu' : '' %>" onClick="window.location= '/students'">
                 <img src="/assets/image/user.svg" class="item__link__logo" />
                 <div class="item__link__title">Students</div>
             </div>
@@ -25,5 +26,6 @@
                 <div class="item__link__title">Settings</div>
             </div>
         </li>
+        <% } %>
     </ul>
 </nav>

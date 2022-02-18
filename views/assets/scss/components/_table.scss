@@ -1,16 +1,26 @@
-.data-list {
+.table-container {
+    @extend .card-main;
+    padding: 1rem;
+}
+
+.table-title {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.table-wrapper {
+    overflow-x:auto;
     .table {
         width: 100%;
-        table-layout: fixed;
         border-collapse: collapse;
-        
 
         &__head > tr > th {
             padding: 0.5rem 0.8rem;
             text-align: left;
             font-size: 1.1rem;
             font-weight: 600;
-            // color: $color-gray1;
             border-bottom: 2px solid $color-gray;
         }
 
@@ -25,6 +35,14 @@
                     text-align: left;
                     letter-spacing: 0.025em;
                     border-bottom: 1px solid $color-gray;
+
+                    @include breakpoint(lg) {
+                        max-width: 1rem;
+                    }
+                }
+
+                td.actions {
+                    color: red;
                 }
             }
         }

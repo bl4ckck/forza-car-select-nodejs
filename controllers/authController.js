@@ -1,38 +1,56 @@
-const { User } = require("../models");
+const { User, People, sequelize } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { checkData } = require("../utils");
 const saltRounds = 12;
 
-exports.register = async (req, res, next) => {
-    try {
-        const { password } = req.body;
-        const hash = await bcrypt.hash(password, saltRounds);
+exports.register = (req, res, next) => {
+    const { redirect } = req.query;
 
-        const bodyData = {
-            roles: undefined,
-            email: undefined,
-            password: undefined,
-            ...req.body,
-        };
-        bodyData.password = hash;
-        console.log(bodyData);
+    sequelize.transaction(async (t) => {
+        try {
+            const { password } = req.body;
+            const hash = await bcrypt.hash(password, saltRounds);
 
-        checkData(bodyData)
-            .then(async (getBody) => {
-                const data = (await User.create(getBody)) ?? {};
+            const dataPeople = {
+                UserId: req.body.UserId,
+                name: req.body.name,
+                avatar: req.body.avatar,
+                phone: req.body.phone,
+                address: req.body.address,
+            };
 
-                res.status(201).json({
-                    message: "POST request to /users",
-                    data,
-                });
-            })
-            .catch((err) => {
-                next(err);
-            });        
-    } catch (error) {
-        next(error);
-    }
+            const dataUser = {
+                roles: req.body.roles,
+                email: req.body.email,
+                password: req.body.password,
+            };
+            dataUser.password = hash;
+            console.log("user:", dataUser);
+            
+            const userCreate = await User.create(dataUser, {
+                transaction: t,
+            });
+
+            dataPeople.UserId = userCreate.get("id");
+            console.log("people:", dataPeople);
+
+            await People.create(dataPeople, {
+                transaction: t,
+            });
+            
+            if (redirect)
+                return res.redirect("/login");
+            
+            res.status(201).json({
+                message: "POST request to /auth/register",
+                data: { ...dataUser, ...dataPeople },
+            });
+        } catch (error) {
+            if (redirect) return res.redirect("/register?error=failed+to+register");
+            next(error);
+        }
+    })
 };
 
 exports.login = async (req, res, next) => {
@@ -44,13 +62,21 @@ exports.login = async (req, res, next) => {
         next(error);
     }
 };
+exports.logout = async (req, res, next) => {
+    console.log("logout");
+    req.session = null;
+    res.redirect(req.get("referer"));
+};
 
 exports.findAllUsers = async (req, res, next) => {
     try {
         console.log("manumanu");
         console.log(req.cookies);
         console.log(req.session);
-        const data = await User.findAll();
+        const data = await User.findAll({
+            raw: true,
+            order: [["id", "DESC"]],
+        });
 
         res.status(200).json({
             message: "GET request to /users",

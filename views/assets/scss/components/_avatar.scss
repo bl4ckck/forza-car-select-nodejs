@@ -1,0 +1,49 @@
+.avatar-select {
+    display: grid;
+    max-width: 17rem;
+    padding: 1rem 1rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+    grid-auto-columns: minmax(5rem, 1fr);
+    grid-auto-flow: column;
+    gap: 0.25rem;
+    grid-template-rows: repeat(2, minmax(0, 7rem));
+
+    &__card {
+        cursor: pointer;
+        width: 100%;
+        border-width: 0rem;
+        border-style: solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(68.3deg, rgba(245, 177, 97, 1) 0.4%, rgba(236, 54, 110, 1) 100.2%);
+        padding: 0.25rem;
+        background-color: white;
+        box-shadow: $shadow-md;
+
+        &:hover {
+            border-width: 0.3rem;
+        }
+
+        &-inner {
+            border: 0.3rem solid #399bca;
+            height: 100%;
+            border-radius: 0.225rem;
+            text-transform: uppercase;
+
+            &-img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.card-clicked {
+    border-width: 0.3rem !important;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}

@@ -17,8 +17,8 @@ const session = require("express-session");
 const jwt = require("jsonwebtoken");
 
 const { errMdl, authMdl } = require("./middlewares");
-const { apiRoutes } = require("./routes");
-// const { apiRoutes, viewRoutes } = require("./routes");
+// const { apiRoutes } = require("./routes");
+const { apiRoutes, viewRoutes } = require("./routes");
 
 app.use(morgan("dev"));
 app.use(cors());
@@ -45,7 +45,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/api/v1", apiRoutes);
-// app.use(viewRoutes);
+app.use(viewRoutes);
 
 app.use(errMdl.errorResponder);
 app.use(errMdl.failSafeHandler);

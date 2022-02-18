@@ -1,4 +1,16 @@
 /** Alvin Naufal */
+
+const deleteUser = (id) => {
+    const text = "Are you sure you want to delete?\nEither OK or Cancel.";
+    if (confirm(text) == true) {
+        fetch("/api/v1/users/" + id, {
+            method: "DELETE",
+        }).then((data) => {
+            location.reload();
+        });
+    }
+}
+
 addEventListener("load", () => {
     /**
      * Toogle & Navbar
@@ -21,15 +33,4 @@ addEventListener("load", () => {
         toggleImg.src = "/assets/image/x.svg";
         return navbar.classList.add("navbar__mobile");
     });
-
-    /**
-     * Logout
-     */
-    let elLogout = document.getElementById("logout");
-    
-    elLogout.addEventListener("click", (e) => {
-        e.preventDefault();
-        console.log("logout");
-        //TODO: Do Logout
-    })
 });

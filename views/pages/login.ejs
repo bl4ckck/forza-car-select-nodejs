@@ -1,0 +1,14 @@
+<main class="form__auth">
+    <div class="form__auth__wrapper">
+        <p class="form__auth__wrapper-logo">Sekolahan.</p>
+        <p class="form__auth__wrapper-signin">Sign in</p>
+        <p class="form__auth__wrapper-continue">to continue to Sekolahan.</p>
+        <form class="form-main" action="/api/v1/auth/login/redirect" method="POST">
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
+            
+            <input type="submit" id="btn-submit" value="Login" />
+        </form>
+        <p class="form__auth__wrapper-register">Don't have an account yet? <a href="/register">Sign up now</a></p>
+    </div>
+</main>

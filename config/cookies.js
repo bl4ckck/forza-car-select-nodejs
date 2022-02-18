@@ -6,8 +6,8 @@ const cookieConfig = {
     name: "_siam_sess",
     path: "/",
     httpOnly: true,
-    secure: false,
-    maxAge: 60 * 60 * 1000, // 1
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 60 * 60 * 1000,
     keys: new Keygrip([process.env.KEY_GRIP], "SHA384", "base64"),
     signed: true,
 };

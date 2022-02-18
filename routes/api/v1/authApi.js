@@ -6,11 +6,6 @@ const { reqBody, authMdl } = require("../../../middlewares");
 /*
  * GET
  */
-// router.get("/", AUTH_C.findAllCar);
-
-/*
- * GET
- */
 // router.get("/:id", AUTH_C.findOneCar);
 
 /*
@@ -22,6 +17,12 @@ router.post("/register", reqBody, AUTH_C.register);
  * LOGIN
  */
 router.post("/login", authMdl.onLogin, AUTH_C.login);
+router.post("/login/redirect", authMdl.onLoginRedirect);
+
+/*
+ * LOGOUT
+ */
+router.get("/logout", authMdl.sessionValidity, AUTH_C.logout);
 
 /*
  * PUT

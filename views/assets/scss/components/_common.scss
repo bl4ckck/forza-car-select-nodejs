@@ -29,3 +29,11 @@
 .active-menu {
     border-left: 2px solid $bg-orange;
 }
+
+.separator {
+    color: $color-gray;
+    background-color: $color-gray;
+    height: 1px;
+    border: none;
+    width: 100%;
+}
