@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navbar__brand">
-        <div class="navbar__brand-title">Sekolahan.</div>
+        <div class="navbar__brand-title" onClick="window.location= '/'">Sekolahan.</div>
         <button id="nav-toggle" class="navbar__brand-toggle">
             <img class="navbar__brand-toggle-img" src="/assets/image/menu.svg">
         </button>
@@ -20,12 +20,12 @@
                 <div class="item__link__title">Students</div>
             </div>
         </li>
+        <% } %>
         <li class="navbar__menu-item">
-            <div class="item__link <%= props.menu.setting!==undefined? 'active-menu' : '' %>" onClick="window.location= '/garage'">
+            <div class="item__link <%= props.menu.settings!==undefined? 'active-menu' : '' %>" onClick="window.location= '/settings'">
                 <img src="/assets/image/settings.svg" class="item__link__logo" />
                 <div class="item__link__title">Settings</div>
             </div>
         </li>
-        <% } %>
     </ul>
 </nav>

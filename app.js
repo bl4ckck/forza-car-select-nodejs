@@ -12,12 +12,7 @@ const cookieParser = require("cookie-parser");
 const cookieSession = require("cookie-session");
 const cookieConfig = require("./config/cookies");
 
-const session = require("express-session");
-
-const jwt = require("jsonwebtoken");
-
 const { errMdl, authMdl } = require("./middlewares");
-// const { apiRoutes } = require("./routes");
 const { apiRoutes, viewRoutes } = require("./routes");
 
 app.use(morgan("dev"));

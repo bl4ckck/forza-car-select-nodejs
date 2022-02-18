@@ -4,16 +4,16 @@
         <p class="form__auth__wrapper-signin">Register</p>
         <p class="form__auth__wrapper-continue">to continue to Sekolahan.</p>
         <form class="form-main" action="/api/v1/auth/register?redirect=true" method="POST">
-            <input required type="email" name="email" placeholder="Email" />
-            <input required type="password" name="password" placeholder="Password" />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
             
             <hr class="separator" />
             
             <label for="lname">Name</label>
-            <input required type="text" name="name" id="lname" placeholder="Name..." />
+            <input type="text" name="name" id="lname" placeholder="Name..." required />
             
             <label for="lphone">Phone</label>
-            <input required type="text" name="phone" id="lphone" placeholder="Phone..." />
+            <input type="text" name="phone" id="lphone" placeholder="Phone..." required />
             
             <label for="lavatar">Avatar</label>
             <input type="hidden" name="avatar" id="lavatar" />
@@ -21,9 +21,9 @@
             <section class="avatar-select">
                  <%- include('../components/cards/avatarCard'); %>
             </section>
-            
+
             <label for="laddress">Address</label>
-            <textarea id="laddress" name="address" rows="2" placeholder="Address..."></textarea>
+            <textarea id="laddress" name="address" rows="2" placeholder="Address..." required></textarea>
 
             <input type="submit" id="btn-submit" value="Register" />
         </form>

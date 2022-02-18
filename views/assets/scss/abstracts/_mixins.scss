@@ -13,14 +13,6 @@
     }
 }
 
-@mixin form-field() {
-    input[type=text],
-    input[type=email],
-    input[type=password] {
-        @content;
-    }
-}
-
 @mixin navigation($pos) {
     @include flex-center(row);
     position: fixed;

@@ -25,7 +25,9 @@ exports.registerView = async (req, res) => {
  */
 exports.homeView = async (req, res) => {
     const { user } = req.session.passport;
-    const data = await User.findAll({
+    const isAdmin = user.roles === "ADMIN"
+
+    const data =  isAdmin ? await User.findAll({
         attributes: ["id", "email", "roles"],
         include: [
             {
@@ -36,10 +38,12 @@ exports.homeView = async (req, res) => {
         where: { id: { [Sequelize.Op.not]: user.id } },
         raw: true,
         order: [["id", "DESC"]],
-    });
+    }) : {};
+
+    console.log("datanya",data);
 
     res.render("index", {
-        page: "home",
+        page: isAdmin? "home" : "profile",
         props: {
             title: "User",
             data,
@@ -61,6 +65,7 @@ exports.studentView = async (req, res) => {
         ],
         where: { roles: "STUDENT" },
         raw: true,
+        order: [["id", "DESC"]],
     });
 
     res.render("index", {
@@ -70,6 +75,20 @@ exports.studentView = async (req, res) => {
             data,
             user,
             menu: { students: true },
+        },
+    });
+};
+
+exports.profileView = async (req, res) => {
+    const { user } = req.session.passport;
+
+    res.render("index", {
+        page: "profile",
+        props: {
+            title: "Profile",
+            data: {},
+            user,
+            menu: { settings: true },
         },
     });
 };

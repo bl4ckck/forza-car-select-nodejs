@@ -1,0 +1,13 @@
+<div class="user-profile">
+    <div class="user-profile__header">
+        <img class="user-profile__header__img" src="<%= '/assets/image/avatar/' + props.user['Person.avatar'] %>" />
+        <p class="user-profile__header__name"><%= props.user["Person.name"] %></p>
+        <p class="user-profile__header__email"><%= props.user["email"] %></p>
+        <p class="user-profile__header__phone"><%= props.user["Person.phone"] %></p>
+    </div>
+
+    <hr class="separator" />
+
+    <p class="user-profile__copyright">©<%= new Date().getFullYear() %> Alvin Naufal</p>
+   
+</div>

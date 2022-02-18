@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
+// Passport local strategy middleware
 const localStrategy = new LocalStrategy(
     {
         usernameField: "email",
@@ -15,7 +16,7 @@ const localStrategy = new LocalStrategy(
                 include: [
                     {
                         model: People,
-                        attributes: ["name", "avatar"],
+                        attributes: ["name", "phone", "avatar"],
                     },
                 ],
                 raw: true,
@@ -37,8 +38,8 @@ const localStrategy = new LocalStrategy(
     }
 );
 
+// Passport local middleware checking
 const loginMethod = (req, res, next, isRedirect) => {
-    // passport.authenticate("local", { failureRedirect: "/" }),
     passport.authenticate("local", (err, user, info) => {
         console.log(user);
         const msg = "Authentication failed";
@@ -48,6 +49,7 @@ const loginMethod = (req, res, next, isRedirect) => {
         if (!user) {
             return isRedirect ? res.redirect(`/login?error=${msg}`) : next(msg);
         }
+        // Do Login
         req.login(user, (err) => {
             if (err) {
                 return isRedirect
@@ -59,17 +61,22 @@ const loginMethod = (req, res, next, isRedirect) => {
     })(req, res, next);
 };
 
+// Login API
 const onLogin = (req, res, next) => loginMethod(req, res, next, false);
+// Login View
 const onLoginRedirect = (req, res, next) => loginMethod(req, res, next, true);
 
+// Check if user is logged in
 const sessionValidity = (req, res, next) => {
     console.log("coba", req.session);
     console.log(req.cookies);
     return req.session.passport ? next() : res.redirect("/login");
 };
+// Check if session exist, then user can't access login page
 const sessionLoginPage = (req, res, next) =>
     req.session.passport ? res.redirect("/") : next();
 
+// Session Admin
 const isAdmin = (req, res, next) => {
     const { roles } = req.session.passport.user;
     return roles === "ADMIN" ? next() : res.redirect("/");

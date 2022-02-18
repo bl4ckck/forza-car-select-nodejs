@@ -4,8 +4,8 @@
         <p class="form__auth__wrapper-signin">Sign in</p>
         <p class="form__auth__wrapper-continue">to continue to Sekolahan.</p>
         <form class="form-main" action="/api/v1/auth/login/redirect" method="POST">
-            <input type="email" name="email" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
             
             <input type="submit" id="btn-submit" value="Login" />
         </form>

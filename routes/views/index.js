@@ -7,5 +7,6 @@ router.get("/", sessionValidity, views.homeView);
 router.get("/register", sessionLoginPage, views.registerView);
 router.get("/login", sessionLoginPage, views.loginView);
 router.get("/students", sessionValidity, isAdmin, views.studentView);
+router.get("/settings", sessionValidity, views.profileView);
 
 module.exports = router;
