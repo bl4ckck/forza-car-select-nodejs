@@ -1,4 +1,5 @@
 # Alvin Naufal: Assignment Authentication & Authorization
+
 - Login with cookies and logout (destroy cookies)
 - Register as Student (if role undefined)
 - Middleware for error handling and auth
@@ -9,6 +10,15 @@
 - 2 Tables (Peoples, Users)
 - Seeder and Migration
 
+## Deployment URL & Accounts
+[Alvin Naufal's Heroku](https://alvin-assignment.herokuapp.com/)
+
+| Roles | Email | Password |
+| ------ | ------ | ------ |
+| ADMIN | admin@gmail.com | 12345678 
+| ADMIN | admin2@gmail.com | 12345678 
+| STUDENT | student@gmail.com | 12345678 
+| STUDENT | student2@gmail.com | 12345678 
 
 ## Installation
 
