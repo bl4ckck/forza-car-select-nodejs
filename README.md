@@ -1,12 +1,24 @@
-# Alvin Naufal: CRUD (Raw Query)
-- 2 Tables (Cars, Manufactures)
+# Alvin Naufal: Assignment Authentication & Authorization
+
+- Login with cookies and logout (destroy cookies)
+- Register as Student (if role undefined)
+- Middleware for error handling and auth
+- Admin can delete User in web page and can do CRUD operation via API
+- Deployed to Heroku
+- Sass styling
+- ORM Sequelize
+- 2 Tables (Peoples, Users)
 - Seeder and Migration
-- One to Many (Join Query)
-- Raw query CRRUD
-- Middleware for error handling
-- Env variable as in assignment instruction
-- Packages : express , pg, dotenv
-- .gitignore > node_modules, .env
+
+## Deployment URL & Accounts
+[Alvin Naufal's Heroku](https://alvin-assignment.herokuapp.com/)
+
+| Roles | Email | Password |
+| ------ | ------ | ------ |
+| ADMIN | admin@gmail.com | 12345678 
+| ADMIN | admin2@gmail.com | 12345678 
+| STUDENT | student@gmail.com | 12345678 
+| STUDENT | student2@gmail.com | 12345678 
 
 ## Installation
 
@@ -16,34 +28,17 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 npm i
-npm run migrate
-npm run seed
+npx sequelize db:migrate
+npx sequelize db:seed:all
 npm run dev
 ```
 By default, the server will run on port 5000. You can specify your own port in .env
 
 
 ## API Endpoint
-Import Alvin Naufal.postman_collection.json in Postman
-#### Cars Endpoint
-| Method | Endpoint | Description |
-| ------ | ------ | ------ |
-| POST | /api/v1/cars | Insert Car; Request--> { manufacture_id:number, name:string, image:string, year:string }
-| GET | /api/v1/cars | Get All Cars 
-| GET | /api/v1/cars/:id | Get Cars By ID
-| GET | /api/v1/cars/rel/manufactures | Get All Manufacture Cars (Join)
-| GET | /api/v1/cars/rel/manufactures/:id | Get Manufacture Cars By ID (Join)
-| PUT | /api/v1/cars/:id | Update Car; Request--> { manufacture_id:number, name:string, image:string, year:string }
-| DELETE | /api/v1/cars/:id | Delete Car
-#### Manufactures Endpoint
-| Method | Endpoint | Description |
-| ------ | ------ | ------ |
-| POST | /api/v1/manufactures | Insert Manufacture; Request--> { manufacture:string }
-| GET | /api/v1/manufactures | Get All Manufactures 
-| GET | /api/v1/manufactures/:id | Get Manufactures By ID
-| PUT | /api/v1/manufactures/:id | Update Manufacture; Request--> { manufacture:string }
-| DELETE | /api/v1/manufactures/:id | Delete Manufacture
-
+Visit [API Documentation](https://documenter.getpostman.com/view/1979077/UVkjvHMh)
+OR
+Import School-Alvin Naufal.postman_collection.json in Postman
 
 ## License
 

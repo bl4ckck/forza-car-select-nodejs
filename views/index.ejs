@@ -21,7 +21,7 @@
 <body>
   <% if (page==="login" || page==="register") { %>
     <%- include('pages/'+page); %>
-    <script src="/assets/js/avatar.js"></script>
+    <script src="/assets/js/avatar.js" async></script>
   <% } else { %>
     <%- include('pages/layout/navbar'); %>
     <main class="main-content">
@@ -30,7 +30,7 @@
           <%- include('pages/'+page, props); %>
       </div>
     </main>
-    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/script.js" async></script>
   <% } %>
 </body>
 
