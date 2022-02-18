@@ -8,7 +8,7 @@ const { reqBody } = require("../../../middlewares")
  */
 router.get("/", PEOPLE_C.findAllPeople);
 /*
- * GET /manufacture
+ * GET /rel/users
  */
 router.get("/rel/users", PEOPLE_C.findAllPeopleUser);
 
@@ -18,7 +18,7 @@ router.get("/rel/users", PEOPLE_C.findAllPeopleUser);
 router.get("/:id", PEOPLE_C.findOnePeople);
 
 /*
- * GET
+ * GET /rel/users/:id
  */
 router.get("/rel/users/:id", PEOPLE_C.findOnePeopleUser);
 

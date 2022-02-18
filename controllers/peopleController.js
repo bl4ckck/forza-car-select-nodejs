@@ -1,32 +1,5 @@
 const { People, User } = require("../models");
 
-/**
- * API
- */
-exports.insertCar = (req, res, next) => {
-    const bodyData = {
-        manufacture_id: undefined,
-        name: undefined,
-        image: undefined,
-        year: undefined,
-        ...req.body,
-    };
-
-    checkData(bodyData)
-        .then(async (getBody) => {
-            console.log(getBody);
-            const data = (await carModel.createCar(getBody)) ?? {};
-
-            res.status(201).json({
-                message: "POST request to /peoples",
-                data,
-            });
-        })
-        .catch((err) => {
-            next(err);
-        });
-};
-
 exports.findAllPeople = async (req, res, next) => {
     try {
         const data = await People.findAll({

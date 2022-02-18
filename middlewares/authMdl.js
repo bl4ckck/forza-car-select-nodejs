@@ -56,7 +56,7 @@ const loginMethod = (req, res, next, isRedirect) => {
                     ? res.redirect(`/login?error=${msg}`)
                     : next(err);
             }
-            return isRedirect ? res.redirect("/") : next(err);
+            return isRedirect ? res.redirect("/") : next();
         });
     })(req, res, next);
 };
@@ -68,7 +68,7 @@ const onLoginRedirect = (req, res, next) => loginMethod(req, res, next, true);
 
 // Check if user is logged in
 const sessionValidity = (req, res, next) => {
-    console.log("coba", req.session);
+    console.log(req.session);
     console.log(req.cookies);
     return req.session.passport ? next() : res.redirect("/login");
 };
@@ -81,6 +81,10 @@ const isAdmin = (req, res, next) => {
     const { roles } = req.session.passport.user;
     return roles === "ADMIN" ? next() : res.redirect("/");
 }
+const isAdminAPI = (req, res, next) => {
+    const { roles } = req.session.passport.user;
+    return roles === "ADMIN" ? next() : next("Authorization failed");
+}
 
 module.exports = {
     localStrategy,
@@ -88,5 +92,6 @@ module.exports = {
     onLoginRedirect,
     sessionValidity,
     sessionLoginPage,
-    isAdmin
+    isAdmin,
+    isAdminAPI,
 };

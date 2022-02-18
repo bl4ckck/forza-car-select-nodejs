@@ -1,7 +1,6 @@
 const { User, People, sequelize } = require("../models");
 
 const bcrypt = require("bcrypt");
-const { checkData } = require("../utils");
 const saltRounds = 12;
 
 exports.register = (req, res, next) => {
@@ -53,14 +52,8 @@ exports.register = (req, res, next) => {
     })
 };
 
-exports.login = async (req, res, next) => {
-    try {
-        console.log("sukses")
-        console.log(req.session)
-        res.send({data:"sukses"}) 
-    } catch (error) {
-        next(error);
-    }
+exports.login =  (req, res, next) => {
+    res.send({ message: "Login success", data: req.session.passport })
 };
 exports.logout = async (req, res, next) => {
     console.log("logout");

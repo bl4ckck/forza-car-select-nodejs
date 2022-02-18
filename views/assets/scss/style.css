@@ -28,7 +28,7 @@ p {
   margin: 0;
 }
 
-.btn-base, #btn-submit, .button-menu__btn, .btn-home, .btn-logout, .btn-delete, .navbar__brand-toggle {
+.btn-base, #btn-submit, .btn-logout, .btn-delete, .navbar__brand-toggle {
   border: none;
   text-decoration: none;
 }
@@ -41,41 +41,6 @@ p {
   padding: 0.6rem 1rem;
   margin: 1rem auto;
   border-radius: 0.25rem;
-}
-
-.button-menu {
-  margin: 0 0.5rem;
-}
-
-.button-menu:hover {
-  transform: scale(0.9);
-  -webkit-transform: scale(0.9);
-}
-
-.button-menu__btn {
-  background-color: black;
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-right: 0.4rem;
-  border: 0.1rem solid white;
-  border-radius: 0.25rem;
-}
-
-.button-menu__description {
-  letter-spacing: 0.025em;
-}
-
-.btn-home {
-  background-color: white;
-  padding: 0.3rem 0.4rem;
-  border-radius: 9999px;
-  margin: 0 0.4rem;
-}
-
-.btn-home__img {
-  width: 1.3rem;
-  height: 1.3rem;
 }
 
 .btn-logout {
@@ -244,11 +209,11 @@ p {
   text-align: center;
 }
 
-.uppercase, .button-menu__btn {
+.uppercase {
   text-transform: uppercase !important;
 }
 
-.cursor-pointer, .btn-base, #btn-submit, .button-menu__btn, .btn-home, .btn-logout, .btn-delete, .navbar__brand-toggle, .button-menu, .navbar__brand-title, .navbar__menu-item .item__link, .user-panel__notification, .user-panel .profile-wrapper {
+.cursor-pointer, .btn-base, #btn-submit, .btn-logout, .btn-delete, .navbar__brand-toggle, .navbar__brand-title, .navbar__menu-item .item__link, .user-panel__notification, .user-panel .profile-wrapper {
   cursor: pointer !important;
 }
 
@@ -534,30 +499,6 @@ p {
   .main-content__inner {
     margin: 2rem auto 0;
   }
-}
-
-.footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: fixed;
-  z-index: 5;
-  bottom: 0;
-  width: 100%;
-  min-height: 4rem;
-  color: white;
-  background-color: black;
-  padding: 0.5em 0;
 }
 
 .form__auth {

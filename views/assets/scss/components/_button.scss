@@ -15,42 +15,6 @@
     border-radius: $rounded;
 }
 
-.button-menu {
-    @extend .cursor-pointer;
-    margin: 0 0.5rem;
-    &:hover {
-        transform:scale(0.9);
-        -webkit-transform:scale(0.9);
-    }
-
-    &__btn {
-        @extend .btn-base, .uppercase;
-        background-color: black;
-        color: white;
-        font-size: 0.8rem;
-        font-weight: 700;
-        margin-right: 0.4rem;
-        border: 0.1rem solid white;
-        border-radius: $rounded;
-    }
-    &__description {
-        letter-spacing: 0.025em;
-    }
-}
-
-.btn-home {
-    @extend .btn-base;
-    background-color: white;
-    padding: 0.3rem 0.4rem;
-    border-radius: 9999px;
-    margin: 0 0.4rem;
-    
-    &__img {
-        width: 1.3rem;
-        height: 1.3rem;
-    }
-}
-
 .btn-logout {
     @extend .btn-base, .card-main;
     visibility: hidden;
