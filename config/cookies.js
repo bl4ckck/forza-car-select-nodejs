@@ -7,6 +7,7 @@ const cookieConfig = {
     name: "_siam_sess",
     path: "/",
     httpOnly: true,
+    sameSite: 'none',
     secure: process.env.NODE_ENV === "production",
     maxAge: maxAgeCookie,
     expires: new Date(Date.now() + maxAgeCookie),
