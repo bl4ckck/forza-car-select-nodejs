@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const PEOPLE_C = require("../../../controllers").peopleController;
-const { reqBody } = require("../../../middlewares")
+const PEOPLE_C = require("../../../controllers").PeopleController;
 
 /*
  * GET

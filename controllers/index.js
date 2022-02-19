@@ -1,5 +1,5 @@
-const authController = require("./authController")
-const peopleController = require("./peopleController")
-const viewController = require("./viewController")
+const AuthController = require("./AuthController")
+const PeopleController = require("./PeopleController")
+const ViewController = require("./ViewController")
 
-module.exports = { authController, peopleController, viewController };
+module.exports = { AuthController, PeopleController, ViewController };
