@@ -22,8 +22,8 @@ const localStrategy = new LocalStrategy(
                 raw: true,
                 where: { email },
             });
-            console.log(dataValues);
             const isValid = await bcrypt.compare(password, dataValues.password);
+
             if (!dataValues.email || !isValid) {
                 return done(null, false, {
                     message: "Username or password incorrect",
@@ -40,9 +40,8 @@ const localStrategy = new LocalStrategy(
 
 // Passport local middleware checking
 const loginMethod = (req, res, next, isRedirect) => {
+    const msg = "Authentication failed";
     passport.authenticate("local", (err, user, info) => {
-        console.log(user);
-        const msg = "Authentication failed";
         if (err) {
             return isRedirect ? res.redirect(`/login?error=${msg}`) : next(err);
         }

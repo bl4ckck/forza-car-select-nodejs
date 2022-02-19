@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const USER_C = require("../../../controllers").authController;
+const USER_C = require("../../../controllers").AuthController;
 
 /*
  * GET
